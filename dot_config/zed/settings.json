@@ -1,0 +1,192 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run the zed: Open Default Settings command
+// from the command palette
+{
+  "server_url": "https://zed.dev",
+  "proxy": "",
+  "language_models": {
+    "openai_compatible": {
+      "Kimi": {
+        "api_url": "https://api.kimi.com/coding/v1",
+        "available_models": [
+          {
+            "name": "k3-256k",
+            "max_tokens": 262144,
+            "max_output_tokens": 32768,
+            "max_completion_tokens": 262144,
+            "reasoning_effort": "high",
+            "capabilities": {
+              "tools": true,
+              "images": true,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": false,
+              "chat_completions": true,
+              "interleaved_reasoning": true,
+              "max_tokens_parameter": false,
+            },
+          },
+          {
+            "name": "k3",
+            "max_tokens": 262144,
+            "max_output_tokens": 32768,
+            "max_completion_tokens": 262144,
+            "reasoning_effort": "high",
+            "capabilities": {
+              "tools": true,
+              "images": true,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": false,
+              "chat_completions": true,
+              "interleaved_reasoning": true,
+              "max_tokens_parameter": false,
+            },
+          },
+          {
+            "name": "kimi-for-coding",
+            "max_tokens": 262144,
+            "max_output_tokens": 32768,
+            "max_completion_tokens": 262144,
+            "reasoning_effort": "medium",
+            "capabilities": {
+              "tools": true,
+              "images": true,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": false,
+              "chat_completions": true,
+              "interleaved_reasoning": true,
+              "max_tokens_parameter": false,
+            },
+          },
+        ],
+      },
+    },
+  },
+  "agent_servers": {
+    "kimi": {
+      "type": "registry",
+    },
+  },
+  "outline_panel": {
+    "dock": "left",
+  },
+  "collaboration_panel": {
+    "dock": "left",
+  },
+  "agent": {
+    "default_profile": "write",
+    "show_turn_stats": true,
+    "expand_edit_card": false,
+    "expand_terminal_card": true,
+    "tool_permissions": {
+      "tools": {
+        "create_directory": {
+          "default": "allow",
+        },
+        "write_file": {
+          "default": "allow",
+        },
+        "terminal": {
+          "default": "allow",
+        },
+      },
+    },
+    "thinking_display": "always_collapsed",
+    "default_model": {
+      "effort": "high",
+      "provider": "Kimi",
+      "model": "k3-256k",
+      "enable_thinking": true,
+    },
+    "dock": "right",
+    "favorite_models": [],
+    "model_parameters": [],
+  },
+  "git_panel": {
+    "tree_view": true,
+    "dock": "left",
+  },
+  "show_edit_predictions": false,
+  "project_panel": {
+    "dock": "left",
+    "hide_hidden": true,
+  },
+  "hidden_files": ["/.claude"],
+  "edit_predictions": {
+    "provider": "zed",
+  },
+  "autosave": {
+    "after_delay": {
+      "milliseconds": 1000,
+    },
+  },
+  "auto_install_extensions": {
+    "html": true,
+    "scss": true,
+    "dockerfile": true,
+    "latex": true,
+    "graphql": true,
+  },
+  "ui_font_family": "Inter Nerd Font Propo",
+  "ui_font_size": 14.0,
+  "buffer_font_family": "FiraCode Nerd Font",
+  "buffer_font_features": {
+    "calt": false,
+  },
+  "buffer_font_size": 14.0,
+  "confirm_quit": true,
+  "tab_bar": {
+    "show_nav_history_buttons": false,
+  },
+
+  "vim_mode": true,
+  "vim": {
+    "use_system_clipboard": "always",
+    "toggle_relative_line_numbers": true,
+  },
+  "soft_wrap": "editor_width",
+  "cursor_blink": false,
+  "scroll_beyond_last_line": "vertical_scroll_margin",
+  "git": {
+    "inline_blame": {
+      "enabled": false,
+    },
+  },
+  "terminal": {
+    "shell": {
+      "program": "fish",
+    },
+    "font_family": "FiraCode Nerd Font",
+    "font_size": 14,
+  },
+  "ui_font_features": {
+    "calt": false,
+  },
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "One Dark",
+  },
+  "format_on_save": "on",
+  "languages": {
+    "JavaScript": {
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true,
+      },
+    },
+    "TypeScript": {
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true,
+      },
+    },
+    "TSX": {
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true,
+      },
+    },
+  },
+}

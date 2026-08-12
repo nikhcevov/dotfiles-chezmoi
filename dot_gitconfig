@@ -1,0 +1,16 @@
+[user]
+  name = Vladimir Ovechkin
+  email = ovchingus@gmail.com 
+[diff]
+  relative = true
+[core]
+  editor = nvim
+  excludesFile = ~/.gitignore
+[merge]
+  conflictstyle = zdiff3
+[push]
+  autoSetupRemote = true
+[includeIf "gitdir:~/Projects/ecom/"]
+  path = ~/Projects/ecom/.gitconfig
+[includeIf "gitdir:~/Projects/b2data/"]
+  path = ~/Projects/b2data/.gitconfig

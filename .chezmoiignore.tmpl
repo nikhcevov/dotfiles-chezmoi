@@ -1,0 +1,10 @@
+# Machine-local shell junk - never sync.
+dot_config/zsh/.zcompcache
+dot_config/zsh/.zcompdump
+dot_config/zsh/.zsh_history
+dot_config/zsh/.zsh_sessions
+
+# ghostty came from the linux-only arch/ dir of the old stow repo.
+{{ if ne .chezmoi.os "linux" }}
+dot_config/ghostty
+{{ end }}
