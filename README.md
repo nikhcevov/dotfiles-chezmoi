@@ -21,4 +21,17 @@ On Ansible-managed workstations this is done by the `dotfiles` role.
 
 Use templates: rename a file to `<name>.tmpl` and branch on
 `{{ .chezmoi.hostname }}` / `{{ .chezmoi.os }}`. Host-wide ignores live
-in `.chezmoiignore.tmpl` (e.g. ghostty is Linux-only).
+in `.chezmoiignore.tmpl` (ghostty and KDE/GTK configs are Linux-only).
+
+## KDE Plasma settings
+
+Managed as individual rc-files (kdeglobals, kwinrc, kglobalshortcutsrc,
+...), not one big config. Hardware/session state is deliberately NOT
+managed: kwinoutputconfig.json (monitor layout), plasma appletsrc,
+powermanagementprofilesrc, kwalletrc, kded*, session/.
+
+Plasma rewrites these files at runtime and on logout, so:
+
+- change settings in the GUI, then capture: `chezmoi re-add`
+- after pulling changes on the other machine (`chezmoi update`),
+  log out/in — otherwise the running session overwrites them on logout
