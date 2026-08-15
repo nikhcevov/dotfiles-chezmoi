@@ -1,0 +1,11 @@
+# chezmoi's own config. Managed by chezmoi itself - after pulling changes
+# here, they take effect on the NEXT chezmoi run.
+
+# `chezmoi edit` uses nvim (doctor warned: default vi is not installed).
+[edit]
+command = "nvim"
+
+# /tmp is tmpfs while ~ is on LUKS/ext4, so doctor's hardlink test fails
+# with "invalid cross-device link". Point temp files at a dir on the same
+# filesystem as the source (~/.local/share/chezmoi).
+tempDir = "~/.cache/chezmoi"
