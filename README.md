@@ -5,7 +5,7 @@ Migrated from the stow layout (shared/ + arch/) of ovchingus/dotfiles.
 ## Bootstrap a new machine
 
 ```
-chezmoi init --apply git@github.com:ovchingus/dotfiles-chezmoi.git
+chezmoi init --apply git@github.com:nikhcevov/dotfiles-chezmoi.git
 ```
 
 On Ansible-managed workstations this is done by the `dotfiles` role.
