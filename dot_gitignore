@@ -1,0 +1,9 @@
+# Global gitignore (core.excludesFile) - junk that should never be committed,
+# on any machine, in any repo.
+
+# macOS
+.DS_Store
+
+# Editor swap/backup files
+*.swp
+*~
