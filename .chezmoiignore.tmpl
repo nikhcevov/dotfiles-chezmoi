@@ -29,3 +29,8 @@ README.md
 .config/user-dirs.dirs
 .gtkrc-2.0
 {{ end }}
+
+{{ if ne .chezmoi.os "darwin" }}
+# AeroSpace tiling WM - macOS only.
+.config/aerospace
+{{ end }}
