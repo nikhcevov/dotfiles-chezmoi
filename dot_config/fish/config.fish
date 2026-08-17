@@ -8,18 +8,31 @@ source ~/.config/fish/fish_env
 
 switch (uname)
     case Linux
-        source /usr/share/cachyos-fish-config/cachyos-config.fish
+        # CachyOS ships its own fish config; guard it so plain Arch works too
+        if test -f /usr/share/cachyos-fish-config/cachyos-config.fish
+            source /usr/share/cachyos-fish-config/cachyos-config.fish
+        end
     case Darwin
-        /opt/homebrew/bin/brew shellenv | source
+        # fish-native Homebrew setup (brew shellenv emits POSIX syntax
+        # unless the login shell is already fish, so do it manually)
+        for brew_prefix in /opt/homebrew /usr/local
+            if test -x $brew_prefix/bin/brew
+                set -gx HOMEBREW_PREFIX $brew_prefix
+                set -gx HOMEBREW_CELLAR $brew_prefix/Cellar
+                set -gx HOMEBREW_REPOSITORY $brew_prefix
+                fish_add_path $brew_prefix/bin $brew_prefix/sbin
+                break
+            end
+        end
+        if test -d /Applications/Ghostty.app/Contents/MacOS
+            fish_add_path /Applications/Ghostty.app/Contents/MacOS
+        end
     case '*'
 end
 
 function fish_greeting
     clear
 end
-
-# Nvm plugin default node version
-set --universal nvm_default_version v24
 
 # Run starship prompt
 starship init fish | source

@@ -44,7 +44,7 @@ alias gs='git status'
 
 # Check if main exists and use instead of master:
 function git_main_branch
-    if git branch --list main >/dev/null
+    if git show-ref --verify --quiet refs/heads/main
         echo main
     else
         echo master

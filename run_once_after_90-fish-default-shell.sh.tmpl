@@ -1,0 +1,24 @@
+#!/bin/sh
+# Set fish as the login shell. Runs once per machine (chezmoi run_once_ state);
+# safe to re-run manually - every step is idempotent.
+{{ if eq .chezmoi.os "darwin" -}}
+FISH=/opt/homebrew/bin/fish
+{{ else -}}
+FISH=/usr/bin/fish
+{{ end -}}
+
+if [ ! -x "$FISH" ]; then
+    echo "fish not found at $FISH - install it first, skipping" >&2
+    exit 0
+fi
+
+if [ "$SHELL" = "$FISH" ]; then
+    exit 0
+fi
+
+if ! grep -qx "$FISH" /etc/shells; then
+    echo "$FISH" | sudo tee -a /etc/shells
+fi
+
+chsh -s "$FISH"
+echo "Login shell set to $FISH - takes effect on next login"

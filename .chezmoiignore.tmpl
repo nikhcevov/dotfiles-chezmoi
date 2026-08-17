@@ -1,16 +1,14 @@
-# Machine-local shell junk - never sync.
-.config/zsh/.zcompcache
-.config/zsh/.zcompdump
-.config/zsh/.zsh_history
-.config/zsh/.zsh_sessions
+# Machine-local state - never sync.
+# fish_variables is universal-variable state (per machine), fish_env holds
+# local env vars/secrets - config.fish creates it on first run.
+.config/fish/fish_variables
+.config/fish/fish_env
 
-# Repo metadata - not a dotfile.
+# Repo metadata / OS junk - not a dotfile.
 README.md
+.DS_Store
 
-# ghostty came from the linux-only arch/ dir of the old stow repo.
 {{ if ne .chezmoi.os "linux" }}
-.config/ghostty
-
 # KDE Plasma + GTK theming - linux workstations only.
 .config/dolphinrc
 .config/gtk-3.0

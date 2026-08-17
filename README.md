@@ -21,7 +21,12 @@ On Ansible-managed workstations this is done by the `dotfiles` role.
 
 Use templates: rename a file to `<name>.tmpl` and branch on
 `{{ .chezmoi.hostname }}` / `{{ .chezmoi.os }}`. Host-wide ignores live
-in `.chezmoiignore.tmpl` (ghostty and KDE/GTK configs are Linux-only).
+in `.chezmoiignore.tmpl` (KDE/GTK configs are Linux-only).
+
+`fish_variables`, `fish_env` and zsh are deliberately NOT managed:
+universal variables and secrets are per-machine state. The login shell
+is set to fish by `run_once_after_90-fish-default-shell.sh.tmpl`
+(may ask for sudo on first apply).
 
 ## KDE Plasma settings
 
