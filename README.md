@@ -8,7 +8,19 @@ Migrated from the stow layout (shared/ + arch/) of ovchingus/dotfiles.
 chezmoi init --apply git@github.com:nikhcevov/dotfiles-chezmoi.git
 ```
 
-On Ansible-managed workstations this is done by the `dotfiles` role.
+First init generates `~/.config/chezmoi/chezmoi.toml` from
+`.chezmoi.toml.tmpl`: it asks for the git email (used by `dot_gitconfig.tmpl`,
+defaults to the personal one when run non-interactively, e.g. by the Ansible
+`dotfiles` role). chezmoi's own config is therefore NOT managed as a dotfile.
+
+**Existing machines:** re-run `chezmoi init` once to get the email prompt
+(until then the gitconfig template falls back to the default email).
+
+Fish plugins are installed automatically by
+`run_onchange_after_10-install-fisher-plugins.sh.tmpl` (fisher + everything
+from `fish_plugins`, re-runs when the list changes). Plugin files themselves
+(`conf.d/done.fish`, `conf.d/nvm.fish`, ...) are fisher-owned and deliberately
+NOT tracked - add/remove plugins via `fish_plugins` only.
 
 ## Daily use
 

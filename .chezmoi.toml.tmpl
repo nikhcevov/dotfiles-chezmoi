@@ -1,0 +1,16 @@
+{{- /* Generated at `chezmoi init` into ~/.config/chezmoi/chezmoi.toml.
+       Re-run `chezmoi init` on existing machines to (re)generate.
+       email is asked once per machine and reused by dot_gitconfig.tmpl.
+       Non-interactive runs (Ansible) fall back to the personal default. */ -}}
+{{- $email := "ovchingus@gmail.com" -}}
+{{- if stdinIsATTY -}}
+{{-   $email = promptStringOnce . "email" "Git email address" $email -}}
+{{- else -}}
+{{-   $email = get . "email" | default $email -}}
+{{- end -}}
+
+[edit]
+command = "nvim"
+
+[data]
+    email = {{ $email | quote }}

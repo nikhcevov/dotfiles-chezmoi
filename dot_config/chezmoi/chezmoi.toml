@@ -1,9 +1,0 @@
-# chezmoi's own config. Managed by chezmoi itself - after pulling changes
-# here, they take effect on the NEXT chezmoi run.
-#
-# Note: `chezmoi doctor` will always flag this file as a suspicious entry
-# (the config living inside the source) - that is intentional here.
-
-# `chezmoi edit` uses nvim (doctor warned: default vi is not installed).
-[edit]
-command = "nvim"

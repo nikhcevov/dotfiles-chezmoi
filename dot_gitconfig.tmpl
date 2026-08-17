@@ -1,0 +1,21 @@
+[user]
+  name = Vladimir Ovechkin
+  email = {{ get . "email" | default "ovchingus@gmail.com" }}
+[init]
+  defaultBranch = main
+[core]
+  editor = nvim
+  excludesFile = ~/.gitignore
+[diff]
+  relative = true
+  algorithm = histogram
+[merge]
+  conflictstyle = zdiff3
+[fetch]
+  prune = true
+[push]
+  autoSetupRemote = true
+[rerere]
+  enabled = true
+[branch]
+  sort = -committerdate
