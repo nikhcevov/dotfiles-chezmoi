@@ -1,16 +1,17 @@
 [ActivityManager]
 _k_friendly_name=Activity Manager
 switch-to-activity-14846efa-e1d2-4c7f-861d-943831c7707d=none,none,Switch to activity "Default"
+switch-to-activity-991c5cd1-2b21-4d40-9234-7bdf778ac83b=none,none,Switch to activity "Default"
 
 [KDE Keyboard Layout Switcher]
 Switch keyboard layout to English (US)=none,none,Switch keyboard layout to English (US)
 Switch keyboard layout to Russian=none,none,Switch keyboard layout to Russian
-Switch to Last-Used Keyboard Layout=Meta+Alt+L,Meta+Alt+L,Switch to Last-Used Keyboard Layout
-Switch to Next Keyboard Layout=Alt+Space,Meta+Alt+K,Switch to Next Keyboard Layout
+Switch to Last-Used Keyboard Layout=none,Meta+Alt+L,Switch to Last-Used Keyboard Layout
+Switch to Next Keyboard Layout=Meta+Ctrl+Alt+Shift+K,Meta+Alt+K,Switch to Next Keyboard Layout
 _k_friendly_name=Keyboard Layout Switcher
 
 [kaccess]
-Toggle Screen Reader On and Off=Meta+Alt+S,Meta+Alt+S,Toggle Screen Reader On and Off
+Toggle Screen Reader On and Off=none,Meta+Alt+S,Toggle Screen Reader On and Off
 _k_friendly_name=Accessibility
 
 [kmix]
@@ -264,10 +265,22 @@ previous activity=Meta+Shift+A,none,Walk through activities (Reverse)
 repeat_action=none,none,Manually Invoke Action on Current Clipboard
 show dashboard=Ctrl+F12,Ctrl+F12,Show Desktop
 show-barcode=none,none,Show Barcode…
-show-on-mouse-pos=Meta+V,Meta+V,Show Clipboard Items at Mouse Position
+show-on-mouse-pos=Meta+V\tMeta+Ctrl+Alt+Shift+B,Meta+V,Show Clipboard Items at Mouse Position
 switch to next activity=none,none,Switch to Next Activity
 switch to previous activity=none,none,Switch to Previous Activity
 toggle do not disturb=none,none,Toggle do not disturb
 
+[services][com.mitchellh.ghostty.desktop]
+_launch=Ctrl+Alt+T\tMeta+Ctrl+Alt+Shift+T
+
+[services][org.kde.konsole.desktop]
+_launch=none
+
 [services][org.kde.krunner.desktop]
-_launch=Search\tAlt+F2
+_launch=Search\tAlt+F2\tMeta+Space\tMeta+Ctrl+Alt+Shift+Space
+
+[services][org.kde.plasma.emojier.desktop]
+_launch=Meta+.
+
+[services][org.kde.spectacle.desktop]
+_launch=Print\tMeta+Shift+S\tMeta+Ctrl+Alt+Shift+P
