@@ -7,7 +7,7 @@ switch-to-activity-991c5cd1-2b21-4d40-9234-7bdf778ac83b=none,none,Switch to acti
 Switch keyboard layout to English (US)=none,none,Switch keyboard layout to English (US)
 Switch keyboard layout to Russian=none,none,Switch keyboard layout to Russian
 Switch to Last-Used Keyboard Layout=none,Meta+Alt+L,Switch to Last-Used Keyboard Layout
-Switch to Next Keyboard Layout=Meta+Ctrl+Alt+Shift+K,Meta+Alt+K,Switch to Next Keyboard Layout
+Switch to Next Keyboard Layout=Meta+Ctrl+Alt+Shift+Space,Meta+Alt+K,Switch to Next Keyboard Layout
 _k_friendly_name=Keyboard Layout Switcher
 
 [kaccess]
@@ -111,17 +111,17 @@ Switch to Screen to the Left=none,none,Switch to Screen to the Left
 Switch to Screen to the Right=none,none,Switch to Screen to the Right
 Toggle Night Color=none,none,Suspend/Resume Night Light
 Toggle Window Raise/Lower=none,none,Toggle Window Raise/Lower
-Walk Through Windows=Alt+Tab\tMeta+Tab,Alt+Tab\tMeta+Tab,Walk Through Windows
+Walk Through Windows=Alt+Tab\tMeta+Tab\tMeta+Ctrl+Alt+Shift+F,Alt+Tab\tMeta+Tab,Walk Through Windows
 Walk Through Windows (Reverse)=Alt+Shift+Tab\tMeta+Shift+Tab,Alt+Shift+Tab\tMeta+Shift+Tab,Walk Through Windows (Reverse)
 Walk Through Windows Alternative=none,none,Walk Through Windows Alternative
 Walk Through Windows Alternative (Reverse)=none,none,Walk Through Windows Alternative (Reverse)
-Walk Through Windows of Current Application=Alt+`\tMeta+`,Alt+`\tMeta+`,Walk Through Windows of Current Application
+Walk Through Windows of Current Application=Alt+`\tMeta+`\tMeta+Ctrl+Alt+Shift+G,Alt+`\tMeta+`,Walk Through Windows of Current Application
 Walk Through Windows of Current Application (Reverse)=Alt+~\tMeta+~,Alt+~\tMeta+~,Walk Through Windows of Current Application (Reverse)
 Walk Through Windows of Current Application Alternative=none,none,Walk Through Windows of Current Application Alternative
 Walk Through Windows of Current Application Alternative (Reverse)=none,none,Walk Through Windows of Current Application Alternative (Reverse)
 Window Above Other Windows=none,none,Keep Window Above Others
 Window Below Other Windows=none,none,Keep Window Below Others
-Window Close=Alt+F4,Alt+F4,Close Window
+Window Close=Alt+F4\tMeta+Ctrl+Alt+Shift+Q,Alt+F4,Close Window
 Window Custom Quick Tile Bottom=none,none,Custom Quick Tile Window to the Bottom
 Window Custom Quick Tile Left=none,none,Custom Quick Tile Window to the Left
 Window Custom Quick Tile Right=none,none,Custom Quick Tile Window to the Right
@@ -130,7 +130,7 @@ Window Fullscreen=none,none,Make Window Fullscreen
 Window Grow Horizontal=none,none,Expand Window Horizontally
 Window Grow Vertical=none,none,Expand Window Vertically
 Window Lower=none,none,Lower Window
-Window Maximize=Meta+PgUp,Meta+PgUp,Maximize Window
+Window Maximize=Meta+PgUp\tMeta+Ctrl+Alt+Shift+M,Meta+PgUp,Maximize Window
 Window Maximize Horizontal=none,none,Maximize Window Horizontally
 Window Maximize Vertical=none,none,Maximize Window Vertically
 Window Minimize=Meta+PgDown,Meta+PgDown,Minimize Window
@@ -201,7 +201,7 @@ Window to Screen 4=none,none,Move Window to Screen 4
 Window to Screen 5=none,none,Move Window to Screen 5
 Window to Screen 6=none,none,Move Window to Screen 6
 Window to Screen 7=none,none,Move Window to Screen 7
-_k_friendly_name=KWin
+_k_friendly_name=System Settings
 disableInputCapture=Meta+Shift+Esc,Meta+Shift+Esc,Disable Active Input Capture
 view_actual_size=Meta+0,Meta+0,Zoom to Actual Size
 view_zoom_in=Meta++\tMeta+=,Meta++\tMeta+=,Zoom In
@@ -265,22 +265,24 @@ previous activity=Meta+Shift+A,none,Walk through activities (Reverse)
 repeat_action=none,none,Manually Invoke Action on Current Clipboard
 show dashboard=Ctrl+F12,Ctrl+F12,Show Desktop
 show-barcode=none,none,Show Barcode…
-show-on-mouse-pos=Meta+V\tMeta+Ctrl+Alt+Shift+B,Meta+V,Show Clipboard Items at Mouse Position
+show-on-mouse-pos=Meta+Ctrl+Alt+Shift+V,Meta+V,Show Clipboard Items at Mouse Position
 switch to next activity=none,none,Switch to Next Activity
 switch to previous activity=none,none,Switch to Previous Activity
 toggle do not disturb=none,none,Toggle do not disturb
 
 [services][com.mitchellh.ghostty.desktop]
-_launch=Ctrl+Alt+T\tMeta+Ctrl+Alt+Shift+T
+_launch=Meta+Ctrl+Alt+Shift+Return
 
 [services][org.kde.konsole.desktop]
 _launch=none
 
 [services][org.kde.krunner.desktop]
-_launch=Search\tAlt+F2\tMeta+Space\tMeta+Ctrl+Alt+Shift+Space
+_launch=Search\tAlt+F2\tMeta+Ctrl+Alt+Shift+R
 
 [services][org.kde.plasma.emojier.desktop]
 _launch=Meta+.
 
 [services][org.kde.spectacle.desktop]
+CurrentMonitorScreenShot=none
+OpenWithoutScreenshot=none
 _launch=Print\tMeta+Shift+S\tMeta+Ctrl+Alt+Shift+P
