@@ -1,3 +1,16 @@
+[Added Associations]
+application/pdf=brave-browser.desktop;
+x-scheme-handler/http=brave-browser.desktop;
+x-scheme-handler/https=brave-browser.desktop;
+x-scheme-handler/incy=incy.desktop
+x-scheme-handler/mailto=org.mozilla.Thunderbird.desktop;
 
 [Default Applications]
+application/pdf=brave-browser.desktop;
+x-scheme-handler/http=brave-browser.desktop;
+x-scheme-handler/https=brave-browser.desktop;
 x-scheme-handler/incy=incy.desktop
+x-scheme-handler/mailto=org.mozilla.Thunderbird.desktop;
+x-scheme-handler/openwhispr=openwhispr.desktop
+x-scheme-handler/bitwarden=bitwarden.desktop
+x-scheme-handler/codex=chatgpt.desktop

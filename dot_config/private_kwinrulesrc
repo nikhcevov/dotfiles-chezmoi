@@ -1,2 +1,12 @@
+[56e72c13-0d35-43d6-92ed-1144beafb625]
+Description=Picture in picture above all
+above=true
+aboverule=2
+title=Picture in picture
+titlematch=1
+wmclass=brave
+wmclassmatch=1
+
 [General]
-rules=
+count=1
+rules=56e72c13-0d35-43d6-92ed-1144beafb625
