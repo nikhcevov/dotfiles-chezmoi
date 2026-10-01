@@ -40,6 +40,24 @@ universal variables and secrets are per-machine state. The login shell
 is set to fish by `run_once_after_90-fish-default-shell.sh.tmpl`
 (may ask for sudo on first apply).
 
+## oh-my-pi
+
+Manage `~/.omp/agent/config.yml` (model roles, thinking level, theme, and
+composer preferences) as `dot_omp/private_agent/private_config.yml`.
+Chezmoi restores the agent directory with mode `0700` and the config with
+mode `0600`.
+
+Only this config file is tracked. Credentials, databases, sessions, caches,
+logs, and device IDs remain machine-local; authenticate separately on each
+machine. Do not add the whole `~/.omp` directory or put secrets in the
+tracked config.
+
+After changing settings in oh-my-pi, capture them with:
+
+```sh
+chezmoi add --secrets=error ~/.omp/agent/config.yml
+```
+
 ## KDE Plasma settings
 
 Managed as individual rc-files (kdeglobals, kwinrc, kglobalshortcutsrc,
