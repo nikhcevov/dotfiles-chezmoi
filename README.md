@@ -29,6 +29,19 @@ NOT tracked - add/remove plugins via `fish_plugins` only.
 - push: `chezmoi cd && git add -A && git commit -m "..." && git push`
 - pull on another machine: `chezmoi update`
 
+Before capturing live changes, review `chezmoi diff`; after capturing them,
+run `chezmoi verify` to check that the managed files match.
+
+If working in a separate Git checkout, chezmoi still uses its configured
+source directory (check with `chezmoi source-path`). From the checkout root,
+target that checkout explicitly:
+
+```sh
+chezmoi --source "$PWD" diff
+chezmoi --source "$PWD" re-add
+chezmoi --source "$PWD" verify
+```
+
 ## Per-host differences
 
 Use templates: rename a file to `<name>.tmpl` and branch on
