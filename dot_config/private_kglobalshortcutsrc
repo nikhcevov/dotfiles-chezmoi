@@ -7,7 +7,7 @@ switch-to-activity-991c5cd1-2b21-4d40-9234-7bdf778ac83b=none,none,Switch to acti
 Switch keyboard layout to English (US)=none,none,Switch keyboard layout to English (US)
 Switch keyboard layout to Russian=none,none,Switch keyboard layout to Russian
 Switch to Last-Used Keyboard Layout=none,Meta+Alt+L,Switch to Last-Used Keyboard Layout
-Switch to Next Keyboard Layout=Shift+Space,Meta+Alt+K,Switch to Next Keyboard Layout
+Switch to Next Keyboard Layout=Meta+Ctrl+Alt+Shift+Space,Meta+Alt+K,Switch to Next Keyboard Layout
 _k_friendly_name=Keyboard Layout Switcher
 
 [kaccess]

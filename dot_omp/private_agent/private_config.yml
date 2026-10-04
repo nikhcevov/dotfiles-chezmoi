@@ -2,9 +2,16 @@ modelRoles:
   default: openai-codex/gpt-6.1-sol
 symbolPreset: nerd
 composer:
-  shape: band
+  shape: pi
+  tokenRate: true
 theme:
-  dark: titanium
+  dark: dark
   light: light
 setupVersion: 2
 defaultThinkingLevel: high
+dev:
+  autoqaConsent: denied
+statusLine:
+  preset: default
+  contextLine: embedded
+colorBlindMode: false
