@@ -2,6 +2,11 @@
 
 Here is my [Bat](https://github.com/sharkdp/bat) config
 
+Chezmoi installs the tracked theme and runs `bat cache --build` automatically on
+first apply and when the tracked config or theme changes. The compiled cache
+stays machine-local. After a bat upgrade or cache deletion, run
+`bat cache --build` manually.
+
 ## How to install themes
 
 Example with `tokyonight_moon`

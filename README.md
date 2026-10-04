@@ -46,12 +46,34 @@ chezmoi --source "$PWD" verify
 
 Use templates: rename a file to `<name>.tmpl` and branch on
 `{{ .chezmoi.hostname }}` / `{{ .chezmoi.os }}`. Host-wide ignores live
-in `.chezmoiignore.tmpl` (KDE/GTK configs are Linux-only).
+in `.chezmoiignore.tmpl` (KDE/GTK and the Handy kwtype setup are Linux-only).
 
 `fish_variables`, `fish_env` and zsh are deliberately NOT managed:
 universal variables and secrets are per-machine state. The login shell
 is set to fish by `run_once_after_90-fish-default-shell.sh.tmpl`
 (may ask for sudo on first apply).
+
+The Ansible workstation playbook installs tooling before applying these files and
+sets the fish login shell as root, avoiding an interactive `chsh` prompt during
+automated apply. Standalone chezmoi initialization still uses the shell hook above.
+
+## bat theme
+
+The tracked `tokyonight_moon` theme is compiled into bat's machine-local cache by
+`run_onchange_after_20-build-bat-cache.sh.tmpl` on first apply and when the tracked
+bat config or theme changes. Install bat before applying. After a bat upgrade or
+cache deletion, rebuild manually with `bat cache --build`; do not track the cache.
+
+## Handy
+
+The settings file and autostart entry are Linux-only: the tracked typing backend
+is `kwtype`, provided alongside Handy by the Ansible workstation package groups.
+Download the selected speech model separately on each machine.
+
+The settings store is managed as a whole file, including empty provider API-key
+fields. Applying it replaces local values in those fields; keep this baseline
+credential-free and review it before `chezmoi re-add`. Do not add model files,
+recordings, or provider credentials to Git.
 
 ## oh-my-pi
 
@@ -73,8 +95,8 @@ chezmoi add --secrets=error ~/.omp/agent/config.yml
 
 ## KDE Plasma settings
 
-Managed as individual rc-files (kdeglobals, kwinrc, kglobalshortcutsrc,
-...), not one big config. Hardware/session state is deliberately NOT
+Managed as individual rc-files (kdeglobals, kglobalshortcutsrc, kxkbrc,
+kwinrulesrc, ...), not one big config. Hardware/session state is deliberately NOT
 managed: kwinoutputconfig.json (monitor layout), plasma appletsrc,
 powermanagementprofilesrc, kwalletrc, kded*, session/.
 
