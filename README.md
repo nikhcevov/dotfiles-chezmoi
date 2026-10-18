@@ -153,6 +153,8 @@ Plasma rewrites these files at runtime and on logout, so:
   `us,ru` never reached the running session)
 - verify the running state, not just the file:
   `gdbus call --session --dest org.kde.keyboard --object-path /Layouts --method org.kde.KeyboardLayouts.getLayoutsList`
-  must list every layout from `kxkbrc` (e.g. `us` and `ru`), and
-  `diff ~/.config/kglobalshortcutsrc "$(chezmoi source-path)/dot_config/private_kglobalshortcutsrc"`
-  must be empty after the session has restarted
+  must list every layout from `kxkbrc` (e.g. `us` and `ru`). For shortcuts
+  compare **binding fields only** — Plasma rewrites labels, activity UUIDs and
+  other runtime entries on every exit, and those differ per machine and Plasma
+  version:
+  `grep -E '^(Walk Through Windows|Walk Through Windows of Current Application|Window Maximize|Window Close|Switch to Next Keyboard Layout)=' ~/.config/kglobalshortcutsrc`
