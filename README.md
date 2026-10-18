@@ -128,6 +128,9 @@ every machine. Verify it is loaded with `fc-conflist` and its effect with
 
 Fontconfig ships no fonts: families come from the OS installation, and app-level
 font choices stay with the app (ghostty's `font-family`, KDE's font settings).
+The family ghostty names is installed by the Ansible workstation package
+declaration (`ttf-firacode-nerd`), so the terminal is the one place a font family
+is pinned — in the app config, not in fontconfig.
 Per-display DPI belongs in the user `fontconfig/conf.d/` directory, which is not
 tracked.
 
