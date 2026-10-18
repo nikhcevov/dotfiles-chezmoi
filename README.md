@@ -120,16 +120,26 @@ authorized key set is owned by the homelab repository (`files/ssh/` and
 
 ## Fonts
 
-`~/.config/fontconfig/fonts.conf` is tracked: rendering policy only — artificial
-oblique for faces without italics, synthetic bold for faces without a bold cut,
-hinting/antialias. It pins no font families and no DPI, so it is identical on
-every machine. Verify it is loaded with `fc-conflist` and its effect with
-`fc-match -v <family>`.
+`~/.config/fontconfig/fonts.conf` is tracked and does two things:
 
-Fontconfig ships no fonts: families come from the OS installation, and app-level
-font choices stay with the app (ghostty's `font-family`, KDE's font settings).
-Per-display DPI belongs in the user `fontconfig/conf.d/` directory, which is not
-tracked.
+- **rendering policy**: artificial oblique for faces without italics, synthetic
+  bold for faces without a bold cut, hinting/antialias;
+- **default monospace family**: `FiraCode Nerd Font` is prepended with a strong
+  binding on the generic `monospace` family. The strong binding is required
+  because the system's weak generic-family lists (`/etc/fonts/conf.d/60-latin.conf`
+  and the language selectors) are read *after* this file — a weak edit would lose.
+  Other monospace families stay in the sorted list as per-glyph fallbacks, and no
+  DPI is pinned, so the file is identical on every machine.
+
+Verify it is loaded with `fc-conflist`, the default with `fc-match monospace`
+(FiraCode Nerd Font) and the surviving fallbacks with `fc-match -s monospace`.
+
+Fontconfig ships no fonts: the family must be installed on the machine
+(`ttf-firacode-nerd` from `extra` — the Ansible package lists do not declare it),
+otherwise `monospace` silently falls back to Noto Sans Mono. App-level font
+choices stay with the app (ghostty's `font-family`, KDE's font settings, which
+resolve `monospace` through fontconfig). Per-display DPI belongs in the user
+`fontconfig/conf.d/` directory, which is not tracked.
 
 ## KDE Plasma settings
 
