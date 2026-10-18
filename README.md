@@ -144,5 +144,15 @@ powermanagementprofilesrc, kwalletrc, kded*, session/.
 Plasma rewrites these files at runtime and on logout, so:
 
 - change settings in the GUI, then capture: `chezmoi re-add`
-- after pulling changes on the other machine (`chezmoi update`),
-  log out/in — otherwise the running session overwrites them on logout
+- apply them while the Plasma session is NOT running: log out first, then apply
+  (`chezmoi update` / `chezmoi apply --force`) over SSH or from a console, then
+  log in. Applying with a session running is silently reverted on exit: that
+  session writes its stale in-memory values over the file (observed on starling
+  — the Keyboard Layout Switcher's `Switch to Next Keyboard Layout` and KWin's
+  `Walk Through Windows` went back to their KDE defaults, and a layout list of
+  `us,ru` never reached the running session)
+- verify the running state, not just the file:
+  `gdbus call --session --dest org.kde.keyboard --object-path /Layouts --method org.kde.KeyboardLayouts.getLayoutsList`
+  must list every layout from `kxkbrc` (e.g. `us` and `ru`), and
+  `diff ~/.config/kglobalshortcutsrc "$(chezmoi source-path)/dot_config/private_kglobalshortcutsrc"`
+  must be empty after the session has restarted
