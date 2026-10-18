@@ -78,9 +78,15 @@ recordings, or provider credentials to Git.
 ## oh-my-pi
 
 Manage `~/.omp/agent/config.yml` (model roles, thinking level, theme, and
-composer preferences) as `dot_omp/private_agent/private_config.yml`.
+composer preferences) as `dot_omp/private_agent/private_config.yml.tmpl`.
 Chezmoi restores the agent directory with mode `0700` and the config with
 mode `0600`.
+
+The file is a template because `modelRoles.default` is a per-machine choice:
+it branches on `{{ .chezmoi.hostname }}` (desktop vs laptop) with a fallback
+for unlisted hosts. Everything else is shared, so changing a model is a
+one-line host branch rather than a capture that silently reverts the other
+machine on its next apply.
 
 Only this config file is tracked. Credentials, databases, sessions, caches,
 logs, and device IDs remain machine-local; authenticate separately on each
@@ -92,6 +98,38 @@ After changing settings in oh-my-pi, capture them with:
 ```sh
 chezmoi add --secrets=error ~/.omp/agent/config.yml
 ```
+
+Then fold the change back into the template, keeping the `modelRoles.default`
+host branch instead of pinning one machine's value.
+
+## SSH config
+
+`~/.ssh/config` is tracked as `private_dot_ssh/private_config`: a `Host *`
+defaults block (identity file, `IdentitiesOnly`, keepalive) plus fleet aliases
+over the Tailscale MagicDNS domain.
+
+Per-machine stanzas go in the untracked `~/.ssh/config.d/*.conf`, which the
+tracked file includes FIRST — ssh uses the first obtained value, so local
+stanzas win over the shared defaults and survive reapplication. That directory
+is excluded from management for the same reason. Check the result without
+connecting: `ssh -G <host>`.
+
+Private keys, `known_hosts` and `authorized_keys` are NOT tracked. The
+authorized key set is owned by the homelab repository (`files/ssh/` and
+`workstation_ssh_keys`).
+
+## Fonts
+
+`~/.config/fontconfig/fonts.conf` is tracked: rendering policy only — artificial
+oblique for faces without italics, synthetic bold for faces without a bold cut,
+hinting/antialias. It pins no font families and no DPI, so it is identical on
+every machine. Verify it is loaded with `fc-conflist` and its effect with
+`fc-match -v <family>`.
+
+Fontconfig ships no fonts: families come from the OS installation, and app-level
+font choices stay with the app (ghostty's `font-family`, KDE's font settings).
+Per-display DPI belongs in the user `fontconfig/conf.d/` directory, which is not
+tracked.
 
 ## KDE Plasma settings
 

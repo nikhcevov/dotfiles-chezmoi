@@ -1,0 +1,29 @@
+# Managed by chezmoi (dotfiles-chezmoi: private_dot_ssh/private_config).
+# Machine-local stanzas belong in ~/.ssh/config.d/*.conf - included FIRST so
+# they win (ssh uses the first obtained value), and never tracked, so they
+# survive this file being overwritten on every chezmoi apply.
+Include ~/.ssh/config.d/*.conf
+
+Host *
+  IdentityFile ~/.ssh/id_ed25519
+  IdentitiesOnly yes
+  ServerAliveInterval 60
+  ServerAliveCountMax 3
+
+# Arch/CachyOS workstations (login user boss).
+Host starling little-raven
+  HostName %h.han-diatonic.ts.net
+  User boss
+
+# Homelab hosts reached as root: Unraid, monitoring/VPN/edge VPSes, routers.
+# The tailnet domain mirrors tailnet_domain in homelab
+# inventory/group_vars/all/tailscale.yml; authorization comes from the key
+# lists there (files/ssh/README.md), not from this file.
+Host great-hornbill mon-1 vpn-nl edge router-srt router-krm router-trvl
+  HostName %h.han-diatonic.ts.net
+  User root
+
+# Home Assistant SSH add-on (login user boss).
+Host ha-krm
+  HostName ha-krm.han-diatonic.ts.net
+  User boss

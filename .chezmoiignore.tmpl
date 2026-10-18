@@ -12,6 +12,10 @@
 README.md
 .DS_Store
 
+# Machine-local ssh stanzas, included by the tracked ~/.ssh/config. Excluded
+# from management so per-machine aliases survive that file being reapplied.
+.ssh/config.d
+
 {{ if ne .chezmoi.os "linux" }}
 # KDE Plasma, GTK theming, and Handy's kwtype setup - Linux only.
 .config/autostart/Handy.desktop
