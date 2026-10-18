@@ -17,23 +17,18 @@ README.md
 .ssh/config.d
 
 {{ if ne .chezmoi.os "linux" }}
-# KDE Plasma, GTK theming, and Handy's kwtype setup - Linux only.
+# KDE Plasma settings and Handy's kwtype setup - Linux only.
 .config/autostart/Handy.desktop
 .local/share/com.pais.handy/settings_store.json
 .config/dolphinrc
-.config/gtk-3.0
-.config/gtk-4.0
-.config/kcminputrc
 .config/kdeglobals
 .config/kglobalshortcutsrc
 .config/konsolerc
-.config/kwinrc
 .config/kwinrulesrc
 .config/kxkbrc
 .config/mimeapps.list
 .config/plasma-localerc
 .config/user-dirs.dirs
-.gtkrc-2.0
 {{ end }}
 
 {{ if ne .chezmoi.os "darwin" }}
