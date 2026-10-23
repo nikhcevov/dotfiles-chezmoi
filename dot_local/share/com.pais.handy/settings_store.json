@@ -156,7 +156,7 @@
     "selected_channel": null,
     "selected_language": "ru",
     "selected_microphone": null,
-    "selected_model": "handy-computer/parakeet-tdt-0.6b-v3-gguf/parakeet-tdt-0.6b-v3-Q8_0.gguf",
+    "selected_model": "handy-computer/nemotron-3.5-asr-streaming-0.6b-gguf/nemotron-3.5-asr-streaming-0.6b-Q8_0.gguf",
     "selected_output_device": null,
     "settings_schema_version": 2,
     "shortcut_activation": "toggle",
