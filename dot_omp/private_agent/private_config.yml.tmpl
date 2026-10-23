@@ -1,9 +1,5 @@
 modelRoles:
-{{- if eq .chezmoi.hostname "little-raven" }}
-  default: openrouter/deepseek/deepseek-v4.1-flash
-{{- else }}
-  default: openai-codex/gpt-6.1-sol
-{{- end }}
+  default: deepseek/deepseek-flash:high
 symbolPreset: nerd
 composer:
   shape: pi
