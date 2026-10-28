@@ -1,5 +1,7 @@
 [Layout]
 DisplayNames=,
 LayoutList=us,ru
+Options=ctrl:nocaps
+ResetOldOptions=true
 Use=true
 VariantList=,
