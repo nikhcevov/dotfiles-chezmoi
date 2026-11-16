@@ -48,3 +48,4 @@ alias l.="eza -a | grep -e '^\.'" # show only dotfiles
 if test -d "$HOME/.local/bin"
     fish_add_path $HOME/.local/bin
 end
+

@@ -1,13 +1,13 @@
 modelRoles:
-  default: deepseek/deepseek-flash:high
+  default: deepseek/deepseek-flash
 symbolPreset: nerd
 composer:
   shape: pi
   tokenRate: true
 theme:
-  dark: dark
+  dark: dark-one
   light: light
-setupVersion: 2
+setupVersion: 3
 defaultThinkingLevel: high
 dev:
   autoqaConsent: denied
@@ -15,5 +15,20 @@ statusLine:
   preset: default
   contextLine: embedded
 colorBlindMode: false
-hideThinkingBlock: false
+hideThinkingBlock: true
 proseOnlyThinking: true
+update:
+  auto: false
+tui:
+  completeScrollback: false
+  tight: false
+display:
+  hideToolActivity: false
+  showTurnTime: true
+codexResets:
+  autoRedeem5h: "yes"
+  autoRedeemWeekly: "yes"
+skills:
+  manualSkills:
+    - brainstorming
+    - skill-creator

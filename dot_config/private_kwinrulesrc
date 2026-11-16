@@ -8,5 +8,4 @@ wmclass=brave
 wmclassmatch=1
 
 [General]
-count=1
-rules=56e72c13-0d35-43d6-92ed-1144beafb625
+Order=56e72c13-0d35-43d6-92ed-1144beafb625

@@ -82,11 +82,11 @@ composer preferences) as `dot_omp/private_agent/private_config.yml.tmpl`.
 Chezmoi restores the agent directory with mode `0700` and the config with
 mode `0600`.
 
-The file is a template because `modelRoles.default` is a per-machine choice:
-it branches on `{{ .chezmoi.hostname }}` (desktop vs laptop) with a fallback
-for unlisted hosts. Everything else is shared, so changing a model is a
-one-line host branch rather than a capture that silently reverts the other
-machine on its next apply.
+The `.tmpl` suffix is kept for per-host branching (`{{ .chezmoi.hostname }}`,
+as `modelRoles.default` once did), but the current file has no directives:
+since 6b8fc14 every host gets the same model role. Add a host branch again
+only if a machine genuinely needs a different value — a flat capture pins one
+machine's choice for all of them.
 
 Only this config file is tracked. Credentials, databases, sessions, caches,
 logs, and device IDs remain machine-local; authenticate separately on each
@@ -96,11 +96,11 @@ tracked config.
 After changing settings in oh-my-pi, capture them with:
 
 ```sh
-chezmoi add --secrets=error ~/.omp/agent/config.yml
+chezmoi add --template --secrets=error ~/.omp/agent/config.yml
 ```
 
-Then fold the change back into the template, keeping the `modelRoles.default`
-host branch instead of pinning one machine's value.
+`--template` is required: without it chezmoi drops the template attribute (and
+the `.tmpl` suffix) instead of overwriting the template body.
 
 ## SSH config
 

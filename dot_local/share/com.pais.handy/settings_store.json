@@ -55,7 +55,7 @@
     "onboarding_completed": true,
     "overlay_position": "bottom",
     "overlay_style": "none",
-    "paste_delay_after_ms": 60,
+    "paste_delay_after_ms": 500,
     "paste_delay_ms": 60,
     "paste_method": "direct",
     "post_process_api_keys": {
@@ -169,7 +169,7 @@
     "selected_microphone": null,
     "selected_model": "handy-computer/parakeet-ultra-gguf/parakeet-ultra-Q8_0.gguf",
     "selected_output_device": null,
-    "settings_schema_version": 2,
+    "settings_schema_version": 3,
     "shortcut_activation": "toggle",
     "show_tray_icon": true,
     "show_whats_new_on_update": true,

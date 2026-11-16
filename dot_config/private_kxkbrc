@@ -1,5 +1,6 @@
 [Layout]
 DisplayNames=,
+LayoutDefaultGlobal=1
 LayoutList=us,ru
 ResetOldOptions=true
 Use=true
